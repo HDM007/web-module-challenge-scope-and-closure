@@ -86,9 +86,7 @@ function inning(){
 }
 
 console.log(inning())
-console.log(inning())
-console.log(inning())
-console.log(inning())
+
 
 //'INNING() challenge ends here in console.
 
@@ -115,7 +113,6 @@ function finalScore(inning, num){
     scores.Away += inning();
   } return scores;
 }
-console.log(finalScore(inning, 4))
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -171,10 +168,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+  let stats = [];
+  let board = [];
+  let home = 0;
+  let away = 0;
+
+  for (let i = 1; i <= num; i++){
+    stats.push(getInningScore(inning));
+    home+=stats[i-1].Home;
+    away+=stats[i-1].Away;
+    board.push(`Inning ${i} | Home - ${stats[i - 1].Home}  Away - ${stats[i - 1].Away}`)
+  }
+  if (home === away){
+    board.push(`This game will require extra innings.`)
+  } else{
+    board.push(`Final Score: Home - ${home} Away - ${away}`)
+  }
+  return board;
 }
 
+console.log(scoreboard(getInningScore, inning, 5))
 
 
 
