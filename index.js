@@ -71,7 +71,6 @@ Use the inning function below to do the following:
   
 NOTE: This will be a callback function for the tasks below
 */
-console.log("INNING() CHALLENGE STARTS HERE IN CONSOLE")
 function inning(){
   let score = Math.random();
   if (score <= 0.3){
@@ -90,7 +89,8 @@ console.log(inning())
 console.log(inning())
 console.log(inning())
 console.log(inning())
-console.log('INNING() challenge ends here in console.')
+
+//'INNING() challenge ends here in console.
 
 
 
@@ -108,9 +108,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, num){
+  let scores = {"Home": 0, "Away": 0};
+  for (let i = 0; i<num; i++){
+    scores.Home += inning();
+    scores.Away += inning();
+  } return scores;
 }
+console.log(finalScore(inning, 4))
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
