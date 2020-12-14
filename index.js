@@ -29,10 +29,20 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+  counter1 is a call to an inner function, made available because the variable is set equal to an iteration of the function. counter1 ONLY RUNS ONCE UPON INITIALIZATION.
+
+  counter2, however, is a function declaration leaning on a global variable. counter2 uses closure to grab the global variable.
+  
   2. Which of the two uses a closure? How can you tell?
+
+  counter2, for reasons stated previously, and because it runs the anonymous function within equal to the number of times it's called in the code. This is reusable, and provides better support to the notion of data persistence.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter2 is completely reusable and does not persist data. It runs the same way, and doesn't hold onto its memory.
+
+     counter1 tracks how many times the function  itself has been called. Data persists. We can call this information in different contexts of execution. Useful for working with properties and state.
+
 */
 
 // counter1 code
@@ -61,10 +71,17 @@ Use the inning function below to do the following:
   
 NOTE: This will be a callback function for the tasks below
 */
-
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  score = 0;
+  function score(){
+    score = Math.random;
+  } return score;
 }
+
+console.log(inning())
+console.log(inning())
+console.log(inning())
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
