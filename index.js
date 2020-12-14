@@ -71,16 +71,26 @@ Use the inning function below to do the following:
   
 NOTE: This will be a callback function for the tasks below
 */
+console.log("INNING() CHALLENGE STARTS HERE IN CONSOLE")
 function inning(){
-  score = 0;
-  function score(){
-    score = Math.random;
-  } return score;
+  let score = Math.random();
+  if (score <= 0.3){
+    let score=1
+    return score;
+  } else if (score > 0.3 && score <= 0.6){
+    let score=2
+    return score;
+  } else {
+    let score=0;
+    return score;
+  }
 }
 
 console.log(inning())
 console.log(inning())
 console.log(inning())
+console.log(inning())
+console.log('INNING() challenge ends here in console.')
 
 
 
